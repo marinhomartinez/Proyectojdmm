@@ -1,0 +1,252 @@
+#
+# Module devmgr configuration.
+#
+configure snmp sysName "sw-proyectojdmm"
+configure snmp sysContact "https://www.extremenetworks.com/support/"
+configure sys-recovery-level switch reset
+
+#
+# Module vlan configuration.
+#
+configure vlan default delete ports all
+configure vr VR-Default delete ports 1-12
+configure vr VR-Default add ports 1-12
+configure vlan default delete ports 1-12
+create vlan "Empleados"
+configure vlan Empleados tag 20
+create vlan "Interna"
+configure vlan Interna tag 10
+create vlan "Invitados"
+configure vlan Invitados tag 30
+configure vlan Empleados add ports 1,8 tagged
+configure vlan Empleados add ports 6-7 untagged
+configure vlan Interna add ports 1 tagged
+configure vlan Interna add ports 2-5,8 untagged
+configure vlan Invitados add ports 1,8 tagged
+configure vlan Interna ipaddress 192.168.10.2 255.255.255.0
+configure vlan Empleados ipaddress 192.168.20.2 255.255.255.0
+configure vlan Invitados ipaddress 192.168.30.2 255.255.255.0
+
+#
+# Module mcmgr configuration.
+#
+
+#
+# Module otm configuration.
+#
+
+#
+# Module fdb configuration.
+#
+
+#
+# Module rtmgr configuration.
+#
+configure iproute add default 192.168.10.1
+
+#
+# Module policy configuration.
+#
+
+
+#
+# Module aaa configuration.
+#
+Configure account admin encrypted "$5$Fp3gCA$/yCUz3ayB0DssIbjb7WNPdgCy9m1mvTTv/9yIE3Sfq."
+#
+# Module acl configuration.
+#
+
+#
+# Module bfd configuration.
+#
+
+#
+# Module bgp configuration.
+#
+
+#
+# Module cfgmgr configuration.
+#
+
+#
+# Module dosprotect configuration.
+#
+
+#
+# Module dot1ag configuration.
+#
+
+#
+# Module eaps configuration.
+#
+
+#
+# Module edp configuration.
+#
+
+#
+# Module elrp configuration.
+#
+
+#
+# Module ems configuration.
+#
+
+#
+# Module epm configuration.
+#
+
+#
+# Module erps configuration.
+#
+
+#
+# Module esrp configuration.
+#
+
+#
+# Module etmon configuration.
+#
+
+#
+# Module exsshd configuration.
+#
+enable ssh2
+
+#
+# Module hal configuration.
+#
+configure ports 1 debounce time 0
+configure ports 2 debounce time 0
+configure ports 3 debounce time 0
+configure ports 4 debounce time 0
+configure ports 5 debounce time 0
+configure ports 6 debounce time 0
+configure ports 7 debounce time 0
+configure ports 8 debounce time 0
+configure ports 9 debounce time 0
+configure ports 10 debounce time 0
+configure ports 11 debounce time 0
+configure ports 12 debounce time 0
+
+#
+# Module idMgr configuration.
+#
+
+#
+# Module ipSecurity configuration.
+#
+
+#
+# Module isis configuration.
+#
+
+#
+# Module lldp configuration.
+#
+
+#
+# Module mrp configuration.
+#
+
+#
+# Module msdp configuration.
+#
+
+#
+   # Module netLogin configuration.
+#
+
+#
+# Module netTools configuration.
+#
+configure dns-client add name-server 192.168.10.1 vr VR-Default
+configure dns-client add name-server 8.8.8.8 vr VR-Default
+disable dhcp vlan Default
+
+#
+# Module ntp configuration.
+#
+enable ntp vr VR-Default
+configure ntp server add 0.aerohive.pool.ntp.org initial-burst vr VR-Default
+
+#
+# Module ospf configuration.
+#
+
+#
+# Module ospfv3 configuration.
+#
+
+#
+# Module ovsdb configuration.
+#
+
+#
+# Module pim configuration.
+#
+
+#
+# Module poe configuration.
+#
+
+#
+# Module rip configuration.
+#
+
+#
+# Module ripng configuration.
+#
+
+# Module snmpMaster configuration.
+#
+configure snmpv3 engine-id 03:0c:af:78:30:00:00
+enable snmp access
+enable snmp access snmp-v1v2c
+enable snmp access snmpv3
+
+#
+# Module stp configuration.
+#
+  enable stpd s0 auto-bind vlan Empleados
+enable stpd s0 auto-bind vlan Interna
+enable stpd s0 auto-bind vlan Invitados
+
+#
+# Module techSupport configuration.
+#
+
+#
+# Module telnetd configuration.
+#
+
+#
+# Module tftpd configuration.
+#
+
+#
+# Module thttpd configuration.
+#
+disable web http
+enable web https
+
+#
+# Module twamp configuration.
+#
+
+  #
+# Module vmt configuration.
+#
+
+#
+# Module vrrp configuration.
+#
+
+#
+# Module vsm configuration.
+#
+
+#
+# Module vpex configuration.
+#
