@@ -1,7 +1,7 @@
 #
 # Module devmgr configuration.
 #
-configure snmp sysName "sw-proyectojdmm"
+configure snmp sysName "sw1-proyectojdmm"
 configure snmp sysContact "https://www.extremenetworks.com/support/"
 configure sys-recovery-level switch reset
 
